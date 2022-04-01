@@ -1,7 +1,7 @@
 FROM centos:centos6
 LABEL maintainer="joe@rstudio.com"
 
-RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak && curl https://www.host-stage.net/hsmirrors/centos6repofix --output /etc/yum.repos.d/CentOS-Base.repo && yum clean all
+COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum -y install centos-release-scl
 RUN yum -y install python27
 RUN yum -y install devtoolset-7
