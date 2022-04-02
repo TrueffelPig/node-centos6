@@ -21,7 +21,8 @@ export LDFLAGS=-lrt
 scl enable devtoolset-9 rh-python36 "./configure --fully-static --enable-static"
 scl enable devtoolset-9 rh-python36 "ARCH=x64 make -j$(nproc) binary"
 
-cd ${NODE_DIR}
+cd ${GITHUB_WORKSPACE}
+
 mkdir centos_patch
 
 wget https://github.com/NixOS/patchelf/releases/download/0.14.5/patchelf-0.14.5-x86_64.tar.gz
