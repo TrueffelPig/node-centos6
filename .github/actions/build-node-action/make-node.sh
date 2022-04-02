@@ -18,6 +18,6 @@ cd ${NODE_DIR}
 export CPPFLAGS=-D__STDC_FORMAT_MACROS
 export LDFLAGS=-lrt
 
-scl enable devtoolset-9 rh-python36 "./configure --fully-static"
+scl enable devtoolset-9 rh-python36 "./configure --fully-static --enable-static"
 scl enable devtoolset-9 rh-python36 "ARCH=x64 make -j$(nproc) binary"
 sha256sum node-${NODE_VERSION}-linux-x64.tar.xz node-${NODE_VERSION}-linux-x64.tar.gz > SHASUMS256.txt
