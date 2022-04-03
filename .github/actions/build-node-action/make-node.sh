@@ -39,7 +39,7 @@ cd bin
 ../../bin/patchelf --set-interpreter ../lib64/ld-linux-x86-64.so.2 --set-rpath ../lib64 node 
 
 ## now repack
-cd ${NODE_DIR}/centos_patch
+cd ${GITHUB_WORKSPACE}/${NODE_DIR}/centos_patch
 tar -cvzf node-${NODE_VERSION}-linux-x64.tar.gz node-${NODE_VERSION}-linux-x64
 tar -cvJf node-${NODE_VERSION}-linux-x64.tar.xz node-${NODE_VERSION}-linux-x64
 sha256sum node-${NODE_VERSION}-linux-x64.tar.xz node-${NODE_VERSION}-linux-x64.tar.gz > SHASUMS256.txt
