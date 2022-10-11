@@ -48,7 +48,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This  pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./centos_patch/node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
+        asset_path: ./node-${{ env.NODE_VERSION }}/node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
         asset_name: node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
         asset_content_type: application/x-xz
     - if: steps.release_exists.outputs.exists == false
@@ -59,7 +59,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from  the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./centos_patch/node-${{ env.NODE_VERSION }}-linux-x64.tar.gz
+        asset_path: ./node-${{ env.NODE_VERSION }}/node-${{ env.NODE_VERSION }}-linux-x64.tar.gz
         asset_name: node-${{ env.NODE_VERSION }}-linux-x64.tar.gz
         asset_content_type: application/gzip
     - if: steps.release_exists.outputs.exists == false
@@ -70,6 +70,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./centos_patch/SHASUMS256.txt
+        asset_path: ./node-${{ env.NODE_VERSION }}/SHASUMS256.txt
         asset_name: SHASUMS256.txt
         asset_content_type: text/plain
